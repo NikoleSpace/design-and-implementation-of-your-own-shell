@@ -1,4 +1,4 @@
-grammar BashGrammar;
+grammar Bashi;
 
 // Reglas sintácticas
 
@@ -6,7 +6,7 @@ grammar BashGrammar;
 script: statement*;
 
 // Definimos la regla para una declaración, que puede ser un comando, un bucle, o una asignación
-statement: command | loop | assignment;
+statement: command | loop | assignment | listDeclaration;
 
 // Regla para un comando, que puede ser un simple comando o una estructura if
 command: simpleCommand | ifCommand;
@@ -23,6 +23,9 @@ loop: 'for' WORD 'in' (WORD (',' WORD)*)? 'do' script 'done'
 
 // Regla para una asignación de variable
 assignment: WORD '=' expression;
+
+// Regla para una declaración de lista
+listDeclaration: 'declare' ' -a' WORD '=' '[' (expression (',' expression)*)? ']';
 
 // Regla para una condición, aquí es simplificada, pero puedes expandirla para manejar expresiones más complejas
 condition: WORD;
