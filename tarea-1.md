@@ -11,8 +11,8 @@
 - Manejar Variables: Implementa la capacidad de declarar, asignar y utilizar variables en tu lenguaje. Asegúrate de manejar diferentes tipos de datos si es necesario.
 - Estructuras Condicionales: Implementa las estructuras condicionales como if-else. Asegúrate de que el programa pueda tomar decisiones basadas en condiciones.
 - Estructuras Repetitivas: Implementa bucles o estructuras repetitivas como for o while. Permite que el programa ejecute un bloque de código varias veces según una condición dada.
-[]- Manejar Listas: Introduce la capacidad de trabajar con listas o arreglos. Permite la creación, manipulación y acceso a elementos de listas.
-[]- Pruebas Unitarias: Desarrolla pruebas unitarias para cada característica implementada. Asegúrate de que las variables, estructuras condicionales, estructuras repetitivas y listas funcionen correctamente.
+- Manejar Listas: Introduce la capacidad de trabajar con listas o arreglos. Permite la creación, manipulación y acceso a elementos de listas.
+- Pruebas Unitarias: Desarrolla pruebas unitarias para cada característica implementada. Asegúrate de que las variables, estructuras condicionales, estructuras repetitivas y listas funcionen correctamente.
 - Ejemplos de Uso: Crea ejemplos de código que utilicen todas las características implementadas. Esto ayudará a verificar que la sintaxis y la funcionalidad del lenguaje se ajusten a tus expectativas.
   
 
