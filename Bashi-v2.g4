@@ -1,6 +1,9 @@
-grammar Bashi;
+grammar Bashi-v2;
 
 // Reglas sintácticas
+
+//Detecta dentro de un archivo bashrc el #!/bin/bash
+//bashrcFile: SHEBANG_COMMENT script;
 
 // Aquí definimos la regla para un script que puede contener múltiples declaraciones
 script: statement*;
@@ -39,7 +42,7 @@ simpleExpression: WORD | ARG | NUMBER | variable;
 // Tokens léxicos
 
 // Definimos las reglas para las palabras, argumentos, cadenas, y números
-WORD: [a-zA-Z_][a-zA-Z0-9_];
+WORD: [a-zA-Z_][a-zA-Z0-9_]*;
 ARG: WORD | STRING;
 STRING: '"' ~["] '"';
 NUMBER: ('+' | '-')? [0-9]+;
@@ -47,3 +50,7 @@ variable: '$' WORD;
 
 // Definimos un token para los espacios en blanco que serán ignorados
 WS: [ \t\r\n]+ -> skip;
+
+//SHEBANG_COMMENT: '#!/bin/bash' ~[\r\n]* -> skip;
+NEWLINE: '\r'? '\n' ;
+COMMENT: '#' ~[/\r\n]* NEWLINE -> skip ;
