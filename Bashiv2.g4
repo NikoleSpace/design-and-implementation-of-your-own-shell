@@ -1,4 +1,4 @@
-grammar Bashi-v2;
+grammar Bashiv2;
 
 // Reglas sintácticas
 
