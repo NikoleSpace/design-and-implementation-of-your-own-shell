@@ -57,6 +57,26 @@ public interface Bashiv2Listener extends ParseTreeListener {
 	 */
 	void exitIfCommand(Bashiv2Parser.IfCommandContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link Bashiv2Parser#switchCommand}.
+	 * @param ctx the parse tree
+	 */
+	void enterSwitchCommand(Bashiv2Parser.SwitchCommandContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link Bashiv2Parser#switchCommand}.
+	 * @param ctx the parse tree
+	 */
+	void exitSwitchCommand(Bashiv2Parser.SwitchCommandContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link Bashiv2Parser#switchCases}.
+	 * @param ctx the parse tree
+	 */
+	void enterSwitchCases(Bashiv2Parser.SwitchCasesContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link Bashiv2Parser#switchCases}.
+	 * @param ctx the parse tree
+	 */
+	void exitSwitchCases(Bashiv2Parser.SwitchCasesContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link Bashiv2Parser#loop}.
 	 * @param ctx the parse tree
 	 */

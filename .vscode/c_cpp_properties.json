@@ -1,0 +1,20 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/usr/include/llvm-15",
+                "/usr/include/llvm-c-14",
+                "/usr/include/llvm-c-15",
+                "/home/esteban/Apps/antlr4-cpp-runtime-4.13.1-source/run/usr/local/include/antlr4-runtime"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/clang",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "linux-clang-x64"
+        }
+    ],
+    "version": 4
+}
