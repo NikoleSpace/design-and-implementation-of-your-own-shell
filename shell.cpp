@@ -1,6 +1,6 @@
 #include <cstdlib>
 #include <iostream>
-int main(int argc, char const *argv[])
+/*int main(int argc, char const *argv[])
 {
     // Verifica si se proporcionó al menos un argumento adicional (el comando a ejecutar)
     if (argc <= 1) {
@@ -24,4 +24,4 @@ int main(int argc, char const *argv[])
     }
 
     return 0;
-}
+}*/

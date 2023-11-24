@@ -4,17 +4,9 @@
 #include "Bashiv2BaseVisitor.h"
 #include "Bashiv2Parser.h"
 
-#include "llvm/IR/IRBuilder.h"
-#include "llvm/IR/LLVMContext.h"
-
 #include <algorithm>
 #include <any>
 #include <iostream>
-#include <llvm/ADT/StringRef.h>
-#include <llvm/IR/Function.h>
-#include <llvm/IR/Instructions.h>
-#include <llvm/IR/Type.h>
-#include <llvm/Support/raw_ostream.h>
 #include <map>
 #include <memory>
 #include <string>
@@ -22,28 +14,41 @@
 
 class BashiV2VisitorImpl : Bashiv2BaseVisitor {
 public:
+  /*
   BashiV2VisitorImpl()
       : context(std::make_unique<llvm::LLVMContext>()),
         module(std::make_unique<llvm::Module>("BashiV2", *context)),
         builder(std::make_unique<llvm::IRBuilder<>>(*context)) {}
+  */
 
   virtual antlrcpp::Any visitScript(Bashiv2Parser::ScriptContext *ctx) override;
   virtual antlrcpp::Any visitCommand(Bashiv2Parser::CommandContext *ctx) override;
   virtual antlrcpp::Any visitSimpleCommand(Bashiv2Parser::SimpleCommandContext *ctx) override;
+  virtual antlrcpp::Any visitIfCommand(Bashiv2Parser::IfCommandContext *ctx) override;
+  //virtual antlrcpp::Any visitSwitchCommand(Bashiv2Parser::SwitchCommandContext *ctx) override;
+  //virtual antlrcpp::Any visitSwitchCases(Bashiv2Parser::SwitchCasesContext *ctx) override;
+  virtual antlrcpp::Any visitLoop(Bashiv2Parser::LoopContext *ctx) override;
+  virtual antlrcpp::Any visitAssignment(Bashiv2Parser::AssignmentContext *ctx) override;
+  //virtual antlrcpp::Any visitListDeclaration(Bashiv2Parser::ListDeclarationContext *ctx) override;
+  //virtual antlrcpp::Any visitCondition(Bashiv2Parser::ConditionContext *ctx) override;
+  //virtual antlrcpp::Any visitExpression(Bashiv2Parser::ExpressionContext *ctx) override;
+  //virtual antlrcpp::Any visitSimpleExpression(Bashiv2Parser::SimpleExpressionContext *ctx) override;
+  //virtual antlrcpp::Any visitVariable(Bashiv2Parser::VariableContext *ctx) override;
   //faltan funciones
 
+  /*
   void generateLLVMCode() {
     std::error_code error;
     llvm::raw_fd_stream outLL("output.ll", error);
     module->print(outLL, nullptr);
-  }
+  }*/
 
 private:
-  std::map<std::string, std::any> memory;
+  /*std::map<std::string, std::any> memory;
   std::unique_ptr<llvm::LLVMContext> context;
   std::unique_ptr<llvm::Module> module;
   std::unique_ptr<llvm::IRBuilder<>> builder;
-
+  */
 };
 
 #endif
