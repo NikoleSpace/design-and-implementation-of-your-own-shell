@@ -3,7 +3,7 @@
 
 #include "Bashiv2BaseVisitor.h"
 #include "Bashiv2Parser.h"
-
+#include "Bashiv2Lexer.h"
 #include <algorithm>
 #include <any>
 #include <iostream>
@@ -22,6 +22,7 @@ public:
   */
 
   virtual antlrcpp::Any visitScript(Bashiv2Parser::ScriptContext *ctx) override;
+  virtual antlrcpp::Any visitStatement(Bashiv2Parser::StatementContext *ctx) override;
   virtual antlrcpp::Any visitCommand(Bashiv2Parser::CommandContext *ctx) override;
   virtual antlrcpp::Any visitSimpleCommand(Bashiv2Parser::SimpleCommandContext *ctx) override;
   virtual antlrcpp::Any visitIfCommand(Bashiv2Parser::IfCommandContext *ctx) override;
@@ -34,7 +35,6 @@ public:
   //virtual antlrcpp::Any visitExpression(Bashiv2Parser::ExpressionContext *ctx) override;
   //virtual antlrcpp::Any visitSimpleExpression(Bashiv2Parser::SimpleExpressionContext *ctx) override;
   //virtual antlrcpp::Any visitVariable(Bashiv2Parser::VariableContext *ctx) override;
-  //faltan funciones
 
   /*
   void generateLLVMCode() {
@@ -44,6 +44,7 @@ public:
   }*/
 
 private:
+  std::map<std::string, std::any> memory; // symbol table
   /*std::map<std::string, std::any> memory;
   std::unique_ptr<llvm::LLVMContext> context;
   std::unique_ptr<llvm::Module> module;

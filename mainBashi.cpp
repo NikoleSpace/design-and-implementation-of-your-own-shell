@@ -9,9 +9,10 @@
 int main() {
     std::string inputString;
     std::cout << "Ingrese los comandos (presione Ctrl+D o Ctrl+Z + Enter para finalizar):\n";
-
+    std::cout<<"bashi> ";
     // Leer datos de forma iterativa desde la entrada estándar
     while (std::getline(std::cin, inputString)) {
+        std::cout<<"bashi> ";
         antlr4::ANTLRInputStream input(inputString);
         Bashiv2Lexer lexer(&input);
         antlr4::CommonTokenStream tokens(&lexer);

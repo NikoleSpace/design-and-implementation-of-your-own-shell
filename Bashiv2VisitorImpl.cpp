@@ -1,15 +1,19 @@
 #include "Bashiv2VisitorImpl.h"
-#include <cstdlib>
+#include <cstdlib> // Para std::system()
 /**/
 antlrcpp::Any BashiV2VisitorImpl::visitScript(Bashiv2Parser::ScriptContext *ctx) {
+    //std::cout<<"visitScript\n";
     // Implementa la visita para la regla script
     for (auto statementContext : ctx->statement()) {
         visit(statementContext);
     }
     return nullptr;
 }
+antlrcpp::Any visitStatement(Bashiv2Parser::StatementContext *ctx){
 
+}
 antlrcpp::Any BashiV2VisitorImpl::visitCommand(Bashiv2Parser::CommandContext *ctx) {
+    std::cout<<"visitCommand\n";
     // Implementa la visita para la regla command
     if (ctx->simpleCommand()) {
         return visit(ctx->simpleCommand());
@@ -21,19 +25,24 @@ antlrcpp::Any BashiV2VisitorImpl::visitCommand(Bashiv2Parser::CommandContext *ct
 }
 
 antlrcpp::Any BashiV2VisitorImpl::visitSimpleCommand(Bashiv2Parser::SimpleCommandContext *ctx) {
-    // Añadir lógica para imprimir los argumentos directamente
-    for (auto arg : ctx->ARG()) {
-        // Imprimir los argumentos como texto directamente
-        std::cout << arg->getText() << " ";
+    std::cout<<"visitSimpleCommand\n";
+    // Obtener todos los tokens WORD
+    std::vector<antlr4::tree::TerminalNode *> words = ctx->getTokens(Bashiv2Lexer::WORD);
+
+    // Recorrer los tokens WORD y obtener el texto
+    for (auto wordToken : words) {
+        std::string wordText = wordToken->getText();
+        std::cout << wordText << " ";
     }
 
     // Imprimir una nueva línea al final
     std::cout << std::endl;
 
-    // Retornar un valor (puedes ajustar esto según tus necesidades)
+    // Retornar un valor (ajustar según sea necesario)
     return 0; // Por ejemplo, 0 para indicar éxito
 }
 antlrcpp::Any BashiV2VisitorImpl::visitLoop(Bashiv2Parser::LoopContext *ctx) {
+    std::cout<<"visitLoop\n";
     std::string loopType = ctx->WORD(0)->getText();
 
     if (loopType == "for") {
@@ -68,6 +77,7 @@ antlrcpp::Any BashiV2VisitorImpl::visitLoop(Bashiv2Parser::LoopContext *ctx) {
 }
 
 antlrcpp::Any BashiV2VisitorImpl::visitIfCommand(Bashiv2Parser::IfCommandContext *ctx) {
+    std::cout<<"visitIfCommand\n";
     // Visitar la condición del comando 'if'
     visit(ctx->condition());
 
@@ -83,6 +93,7 @@ antlrcpp::Any BashiV2VisitorImpl::visitIfCommand(Bashiv2Parser::IfCommandContext
     return nullptr;
 }
 antlrcpp::Any BashiV2VisitorImpl::visitAssignment(Bashiv2Parser::AssignmentContext *ctx) {
+    std::cout<<"visitAssignment\n";
     std::string variableName = ctx->WORD()->getText();
 
     // Puedes hacer algo con el nombre de la variable si es necesario
