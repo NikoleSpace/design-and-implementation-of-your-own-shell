@@ -30,6 +30,7 @@ public:
   //virtual antlrcpp::Any visitSwitchCases(Bashiv2Parser::SwitchCasesContext *ctx) override;
   virtual antlrcpp::Any visitLoop(Bashiv2Parser::LoopContext *ctx) override;
   virtual antlrcpp::Any visitAssignment(Bashiv2Parser::AssignmentContext *ctx) override;
+  virtual antlrcpp::Any visitWord(Bashiv2Parser::WordContext *ctx) override;
   //virtual antlrcpp::Any visitListDeclaration(Bashiv2Parser::ListDeclarationContext *ctx) override;
   //virtual antlrcpp::Any visitCondition(Bashiv2Parser::ConditionContext *ctx) override;
   //virtual antlrcpp::Any visitExpression(Bashiv2Parser::ExpressionContext *ctx) override;

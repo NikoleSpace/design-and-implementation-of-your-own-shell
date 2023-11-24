@@ -1,5 +1,7 @@
 #include "Bashiv2VisitorImpl.h"
+#include "Bashiv2BaseVisitor.h"
 #include <cstdlib> // Para std::system()
+
 /**/
 antlrcpp::Any BashiV2VisitorImpl::visitScript(Bashiv2Parser::ScriptContext *ctx) {
     //std::cout<<"visitScript\n";
@@ -9,8 +11,8 @@ antlrcpp::Any BashiV2VisitorImpl::visitScript(Bashiv2Parser::ScriptContext *ctx)
     }
     return nullptr;
 }
-antlrcpp::Any visitStatement(Bashiv2Parser::StatementContext *ctx){
-
+antlrcpp::Any BashiV2VisitorImpl::visitStatement(Bashiv2Parser::StatementContext *ctx){
+    return visitChildren(ctx);
 }
 antlrcpp::Any BashiV2VisitorImpl::visitCommand(Bashiv2Parser::CommandContext *ctx) {
     std::cout<<"visitCommand\n";
@@ -94,14 +96,18 @@ antlrcpp::Any BashiV2VisitorImpl::visitIfCommand(Bashiv2Parser::IfCommandContext
 }
 antlrcpp::Any BashiV2VisitorImpl::visitAssignment(Bashiv2Parser::AssignmentContext *ctx) {
     std::cout<<"visitAssignment\n";
-    std::string variableName = ctx->WORD()->getText();
-
+    std::string id = ctx->WORD()->getText();
     // Puedes hacer algo con el nombre de la variable si es necesario
 
     // Visitar la expresión a la derecha de la asignación
-    visit(ctx->expression());
+    auto value = visitChildren(ctx->expression());
 
     // Realizar las acciones necesarias para la generación de código LLVM o cualquier otra lógica
-
-    return nullptr;
+    memory[id] = value;
+    return visitChildren(ctx);
+}
+antlrcpp::Any BashiV2VisitorImpl::visitWord(Bashiv2Parser::WordContext *ctx){
+    std::string id = ctx->WORD()->getText();
+	if (memory.count(id)) return memory[id];
+	return std::any();
 }

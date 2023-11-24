@@ -48,7 +48,11 @@ condition: WORD | expression;
 expression: simpleExpression | expression '&&' expression | expression '||' expression;
 
 // Regla para una expresión simple, que puede ser una palabra, un argumento, un número, o una variable
-simpleExpression: WORD | ARG | NUMBER | variable;
+simpleExpression: WORD #Word
+                  | ARG #Arg
+                  | NUMBER #Number
+                  | variable #Var
+                  ; 
 
 // Tokens léxicos
 
