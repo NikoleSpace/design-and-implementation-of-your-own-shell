@@ -1,4 +1,4 @@
-# Implemgentacion Shell TF 
+# Implementación Shell TF 
 ## Tareas
 Se les pide diseñar e implementar una shell con las siguientes características:
 1. Lenguaje básico de scripting con estructuras repetitivas, condicionales y selectivas, variables y
