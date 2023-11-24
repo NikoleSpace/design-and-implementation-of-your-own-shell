@@ -1,5 +1,5 @@
 #include "Bashiv2VisitorImpl.h"
-
+#include <cstdlib>
 /**/
 antlrcpp::Any BashiV2VisitorImpl::visitScript(Bashiv2Parser::ScriptContext *ctx) {
     // Implementa la visita para la regla script
