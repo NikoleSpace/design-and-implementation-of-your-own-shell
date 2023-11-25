@@ -20,3 +20,4 @@ Es por esto que, se plantea el desafío de diseñar e implementar una shell con 
 
 La elección de Bash como implementación de la shell es debido a su amplia adopción, portabilidad y robustez. Bash proporciona un conjunto sólido de características necesarias para el diseño e implementación de una shell, incluyendo soporte para scripting, estructuras de control, variables de entorno, acceso a comandos de sistema y modos interactivo y "headless". Además, su flexibilidad permite la incorporación de características adicionales según las necesidades específicas del usuario, como autosugestiones, manejo de colores, entre otras, lo que hace de Bash una elección versátil y potente.
 
+Link de la demostración de nuestra shell: https://youtu.be/e6wCG9GvBro
